@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: Thief.ma
-//Last modified: Fri, Feb 12, 2021 10:09:53 AM
+//Last modified: Sat, Feb 13, 2021 03:46:43 PM
 //Codeset: 1252
 requires maya "2020";
 requires "stereoCamera" "10.0";
@@ -11,17 +11,17 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "201911140446-42a737a01c";
 fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 18363)\n";
-fileInfo "UUID" "89A121CE-49D1-9054-3EB9-71881E4E8724";
+fileInfo "UUID" "DE07C67E-4CB4-60D2-A17B-16BB94E6750E";
 createNode transform -s -n "persp";
 	rename -uid "69EDEE1A-4D28-8EA8-B9D5-B5A513AE1DD5";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 4.18854513287401 8.2465499898557599 0.91958287063021527 ;
+	setAttr ".t" -type "double3" 2.6400952299065006 7.9513808944416953 0.57346330987757699 ;
 	setAttr ".r" -type "double3" 1069.4616472547264 77.400000000004283 3.6450300512438782e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "FC2819B7-4836-03D0-E398-3AB662385DF3";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 4.3655430948795804;
+	setAttr ".coi" 2.7516593793587267;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -36,7 +36,7 @@ createNode camera -s -n "topShape" -p "top";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
 	setAttr ".coi" 991.83659302702029;
-	setAttr ".ow" 1.0526315789473684;
+	setAttr ".ow" 1.5781889749968681;
 	setAttr ".imn" -type "string" "top";
 	setAttr ".den" -type "string" "top_depth";
 	setAttr ".man" -type "string" "top_mask";
@@ -45,17 +45,17 @@ createNode camera -s -n "topShape" -p "top";
 	setAttr ".o" yes;
 createNode transform -s -n "front";
 	rename -uid "AED9E3D5-45C0-E3B2-8962-43A0D3BAD287";
-	setAttr ".t" -type "double3" 0.18420330630671095 8.3444592578489285 1000.4753966646116 ;
+	setAttr ".t" -type "double3" -0.52425275509625724 8.0902149454906045 1000.4756798050481 ;
 createNode camera -s -n "frontShape" -p "front";
 	rename -uid "72BDD815-4EFC-15D9-75ED-0BBFD5717E3D";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
-	setAttr ".coi" 999.73981483827754;
-	setAttr ".ow" 3.9975047528563818;
+	setAttr ".coi" 1000.4756798050481;
+	setAttr ".ow" 2.3323974570722972;
 	setAttr ".imn" -type "string" "front";
 	setAttr ".den" -type "string" "front_depth";
 	setAttr ".man" -type "string" "front_mask";
-	setAttr ".tp" -type "double3" 0.18420330630671095 8.3444592578489285 0.73558182633402014 ;
+	setAttr ".tp" -type "double3" -0.52425275509625724 8.0902149454906045 0 ;
 	setAttr ".hc" -type "string" "viewSet -f %camera";
 	setAttr ".o" yes;
 createNode transform -s -n "side";
@@ -67,7 +67,7 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr -k off ".v";
 	setAttr ".rnd" no;
 	setAttr ".coi" 1000.5458267855637;
-	setAttr ".ow" 2.9644960288033686;
+	setAttr ".ow" 2.8277200913158396;
 	setAttr ".imn" -type "string" "side";
 	setAttr ".den" -type "string" "side_depth";
 	setAttr ".man" -type "string" "side_mask";
@@ -2285,20 +2285,57 @@ createNode nurbsSurface -n "loftedSurfaceShape1" -p "loftedSurface1";
 		-5.8131791599911322 -8.0688461818486523 0
 		
 		;
+createNode transform -n "curve3";
+	rename -uid "BD45BC9B-4733-6E51-F895-2786A0AA60A5";
+	setAttr ".t" -type "double3" 0 0 1.1551259592397685 ;
+	setAttr ".rp" -type "double3" 0 8.1343391701559771 0 ;
+	setAttr ".sp" -type "double3" 0 8.1343391701559771 0 ;
+createNode nurbsCurve -n "curveShape3" -p "curve3";
+	rename -uid "B9D0126D-4BDC-C1E7-77A9-C78219E6AB31";
+	setAttr -k off ".v";
+	setAttr ".cc" -type "nurbsCurve" 
+		3 2 0 no 3
+		7 0 0 0 1 2 2 2
+		5
+		-0.29000518640656964 8.6728381033676865 -0.06849072091658881
+		-0.4320162288379702 8.4202927124226949 0.05870633221421917
+		-0.55773079398997893 8.1603626854540821 0.1537002756371888
+		-0.68529426180045983 7.574358227345904 0.22504094015450615
+		-0.51776290895666277 7.3860666393443655 0.12719705313080798
+		;
+createNode transform -n "curve4";
+	rename -uid "BE4309C9-473E-97F8-56A4-1692164388B7";
+	setAttr ".t" -type "double3" 0 0 0.96551297787464818 ;
+	setAttr ".rp" -type "double3" 0 7.8203154271967144 0 ;
+	setAttr ".sp" -type "double3" 0 7.8203154271967144 0 ;
+createNode nurbsCurve -n "curveShape4" -p "curve4";
+	rename -uid "14DB5935-4C53-3108-1835-14BF068BEB85";
+	setAttr -k off ".v";
+	setAttr ".cc" -type "nurbsCurve" 
+		3 3 0 no 3
+		8 0 0 0 1 2 3 3 3
+		6
+		-0.20787515917558633 8.2348998216739364 0
+		-0.27800851479586114 8.1291188341203195 0.044770570188862213
+		-0.41827522603640804 7.9175568590130361 0.15725089446777141
+		-0.45430516063022303 7.5828565166038917 0.27955714572048251
+		-0.47521902981264907 7.4217403452323563 0.29702946732801216
+		-0.48567596440386068 7.3411822595465663 0.30576562813177788
+		;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "4F46BD7F-4400-F551-4470-87A969AAD29F";
+	rename -uid "58F8EECE-45B0-DA49-4B52-56B3F7ADB497";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "FDCA951D-499F-EB4E-5A50-2C859434E834";
+	rename -uid "AB1A2E6F-4E36-6AE3-6D93-3C87E4B98321";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "8AD209BF-4FB1-6183-EA20-6286781F499E";
+	rename -uid "0321F1C1-4B08-36FD-B89B-198867381573";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "D70969E4-4E2F-D78A-2D72-83B21614C56F";
+	rename -uid "0B37360F-47A9-E0E4-092D-AFA264517287";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "999E24D1-410B-792A-86D7-6B84DBDB6352";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "15A72419-46C0-E98F-7569-58B0DD26355A";
+	rename -uid "565ED827-4292-D977-BEAE-30A8D2EFAB5D";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "99F1E475-4EAC-235E-EB08-A0B4DAA9A3E9";
 	setAttr ".g" yes;
@@ -2679,7 +2716,7 @@ createNode polyTweak -n "polyTweak8";
 createNode polyTweakUV -n "polyTweakUV9";
 	rename -uid "2A4E640F-4E3B-DCFC-5EBD-8BA51FAE5652";
 	setAttr ".uopa" yes;
-	setAttr -s 25 ".uvtk";
+	setAttr -s 24 ".uvtk";
 	setAttr ".uvtk[2003]" -type "float2" -0.00010363978 2.8580926e-05 ;
 	setAttr ".uvtk[2005]" -type "float2" 0.00012722587 2.9413244e-05 ;
 	setAttr ".uvtk[2008]" -type "float2" -9.3487666e-05 -0.00020921917 ;
@@ -2739,7 +2776,7 @@ createNode polyMergeVert -n "polyMergeVert10";
 createNode polyTweak -n "polyTweak10";
 	rename -uid "CBFC6426-42CC-6E26-A0C8-DC86338257E6";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[660]" -type "float3" -0.56632638 0.1036011 -0.15446067 ;
 	setAttr ".tk[663]" -type "float3" 0.55523276 0.10431337 -0.17971396 ;
 select -ne :time1;
@@ -2772,6 +2809,8 @@ select -ne :defaultResolution;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
+select -ne :ikSystem;
+	setAttr -s 4 ".sol";
 connectAttr ":defaultColorMgtGlobals.cme" "imagePlaneShape1.cme";
 connectAttr ":defaultColorMgtGlobals.cfe" "imagePlaneShape1.cmcf";
 connectAttr ":defaultColorMgtGlobals.cfp" "imagePlaneShape1.cmcp";
